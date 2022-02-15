@@ -9,6 +9,7 @@ services:
       - Mode=release
       - Port=8080
       - ConfPath=/configs
+      - ConfFileName=config.json
     command: /bin/config-service
     volumes:
       - ./configs:/configs
