@@ -1,0 +1,19 @@
+version: '2'
+services:
+  config-service:
+    image: config-service:latest
+    network_mode: "bridge"
+    ports:
+      - "8080:8080"
+    environment:
+      - Mode=release
+      - Port=8080
+      - ConfPath=/configs
+    command: /bin/config-service
+    volumes:
+      - ./configs:/configs
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "10m"
+        max-file: "2"
